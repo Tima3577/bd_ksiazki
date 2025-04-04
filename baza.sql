@@ -1,14 +1,12 @@
 CREATE DATABASE IF NOT EXISTS tima_biblioteka;
 USE tima_biblioteka;
 
--- Create authors table
 CREATE TABLE IF NOT EXISTS autorzy (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL
 );
 
--- Create books table
 CREATE TABLE IF NOT EXISTS ksiazki (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -16,7 +14,6 @@ CREATE TABLE IF NOT EXISTS ksiazki (
     FOREIGN KEY (author_id) REFERENCES autorzy(ID) ON DELETE CASCADE
 );
 
--- Insert authors
 INSERT INTO autorzy (first_name, last_name) VALUES
 ('George', 'Orwell'),
 ('J.K.', 'Rowling'),
@@ -27,7 +24,6 @@ INSERT INTO autorzy (first_name, last_name) VALUES
 ('Ernest', 'Hemingway'),
 ('Agatha', 'Christie');
 
--- Insert books
 INSERT INTO ksiazki (title, author_id) VALUES
 ('1984', 1),
 ('Harry Potter and the Sorcerer''s Stone', 2),
